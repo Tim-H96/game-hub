@@ -1,7 +1,11 @@
-import "./App.css";
+import GameGrid from "./components/GameGrid";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <GameGrid />
+    </>
+  );
 }
 
 export default App;
