@@ -1,4 +1,4 @@
-import { Box, Button, List, ListIcon, ListItem } from "@chakra-ui/react";
+import { Button, List, ListIcon, ListItem } from "@chakra-ui/react";
 import { AiFillStar } from "react-icons/ai";
 
 interface Props {
