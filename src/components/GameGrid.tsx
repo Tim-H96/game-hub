@@ -19,10 +19,11 @@ const GameGrid = ({ games, error }: Props) => {
   return (
     <>
       {error && <p>{error}</p>}
-      <Grid templateColumns="repeat(3, 1fr)" minWidth={"200px"} gap={3}>
+
+      <Grid templateColumns={"repeat(4, 1fr)"} minWidth={"200px"} gap={3}>
         {games.map((game) => (
-          <GridItem key={game.id} minWidth={"200px"}>
-            <Card size={"md"} bg={"gray.700"}>
+          <GridItem key={game.id} minWidth={"200px"} maxW={"350px"}>
+            <Card size={"md"} bg={"gray.700"} maxW={"md"}>
               <AspectRatio ratio={16 / 9}>
                 <Image
                   src={game.background_image}
