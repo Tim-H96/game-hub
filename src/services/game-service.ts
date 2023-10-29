@@ -5,6 +5,7 @@ export interface Game{
     added: number;
     background_image: string;
     name: string;
+    released: string;
 }
 
 export default create('/games');
