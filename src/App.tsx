@@ -1,7 +1,10 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import GameGrid from "./components/GameGrid";
+import useGames from "./hooks/useGames";
 
 function App() {
+  const { games, error } = useGames();
+
   return (
     <Grid
       templateAreas={`"nav nav"
@@ -19,7 +22,7 @@ function App() {
       </GridItem>
       <GridItem pl="2" area={"main"} color={"white"}>
         Game Grid
-        <GameGrid />
+        <GameGrid games={games} error={error} />
       </GridItem>
     </Grid>
   );

@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import apiClient from "../services/api-client";
+import { Game } from "../services/game-service";
 import {
   Card,
   CardHeader,
@@ -11,32 +10,12 @@ import {
   AspectRatio,
 } from "@chakra-ui/react";
 
-interface Game {
-  id: number;
-  added: number;
-  background_image: string;
-  name: string;
+interface Props {
+  games: Game[];
+  error: string;
 }
 
-const GameGrid = () => {
-  const [games, setGames] = useState<Game[]>([]);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    const controller = new AbortController();
-
-    apiClient
-      .get("/games", { signal: controller.signal })
-      .then((res) => {
-        setGames(res.data.results);
-        console.log(res.data);
-      })
-      .catch((err) => {
-        setError(err.message);
-      });
-    //return controller.abort();
-  }, []);
-
+const GameGrid = ({ games, error }: Props) => {
   return (
     <>
       {error && <p>{error}</p>}
