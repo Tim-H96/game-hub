@@ -23,7 +23,7 @@ function App() {
           <LeftPane onClick={() => console.log("clicked")} />
         </GridItem>
       </Show>
-      <GridItem area={"main"} color={"white"}>
+      <GridItem area={"main"}>
         Game Grid
         <GameGrid games={games} error={error} />
       </GridItem>
