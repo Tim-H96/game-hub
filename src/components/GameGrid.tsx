@@ -1,14 +1,6 @@
 import { Game } from "../services/game-service";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  Image,
-  Grid,
-  GridItem,
-  Button,
-  AspectRatio,
-} from "@chakra-ui/react";
+import { SimpleGrid } from "@chakra-ui/react";
+import GameCard from "./GameCard";
 
 interface Props {
   games: Game[];
@@ -20,26 +12,15 @@ const GameGrid = ({ games, error }: Props) => {
     <>
       {error && <p>{error}</p>}
 
-      <Grid templateColumns={"repeat(4, 1fr)"} minWidth={"200px"} gap={3}>
+      <SimpleGrid
+        columns={{ sm: 1, md: 2, lg: 3, xl: 5 }}
+        padding={"10px"}
+        gap={10}
+      >
         {games.map((game) => (
-          <GridItem key={game.id} minWidth={"200px"} maxW={"350px"}>
-            <Card size={"md"} bg={"gray.700"} maxW={"md"}>
-              <AspectRatio ratio={16 / 9}>
-                <Image
-                  src={game.background_image}
-                  objectFit={"cover"}
-                  borderTopRadius={"lg"}
-                ></Image>
-              </AspectRatio>
-
-              <CardHeader color={"white"}>
-                {game.name} <Button size={"xsm"}>{game.added}</Button>
-              </CardHeader>
-              <CardBody color={"white"}>Body</CardBody>
-            </Card>
-          </GridItem>
+          <GameCard key={game.id} game={game}></GameCard>
         ))}
-      </Grid>
+      </SimpleGrid>
     </>
   );
 };
