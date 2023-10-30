@@ -2,6 +2,7 @@ import { Grid, GridItem, Show } from "@chakra-ui/react";
 import GameGrid from "./components/GameGrid";
 import useGames from "./hooks/useGames";
 import LeftPane from "./components/LeftPane";
+import NavBar from "./components/NavBar";
 
 function App() {
   const { games, error } = useGames();
@@ -12,12 +13,10 @@ function App() {
         base: `"nav" "main"`,
         lg: `"nav nav" "left-pane main"`,
       }}
-      gridTemplateRows={"100px 1fr"}
-      gridTemplateColumns={"200px 1fr"}
       gap="2"
     >
-      <GridItem area={"nav"} bg={"orange.300"}>
-        Nav
+      <GridItem area={"nav"}>
+        <NavBar />
       </GridItem>
       <Show above="lg">
         <GridItem area={"left-pane"} bg={"blue.200"}>
