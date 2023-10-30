@@ -19,11 +19,11 @@ function App() {
         <NavBar />
       </GridItem>
       <Show above="lg">
-        <GridItem area={"left-pane"} bg={"blue.200"}>
+        <GridItem area={"left-pane"}>
           <LeftPane onClick={() => console.log("clicked")} />
         </GridItem>
       </Show>
-      <GridItem area={"main"} color={"white"} bg={"coral"}>
+      <GridItem area={"main"} color={"white"}>
         Game Grid
         <GameGrid games={games} error={error} />
       </GridItem>
