@@ -5,7 +5,7 @@ import NavBar from "./components/NavBar";
 import GenreList from "./components/GenreList";
 
 function App() {
-  const { games, error, isLoading } = useGames();
+  const { data, error, isLoading } = useGames();
 
   return (
     <Grid
@@ -24,7 +24,7 @@ function App() {
         </GridItem>
       </Show>
       <GridItem area={"main"}>
-        <GameGrid games={games} error={error} isLoading={isLoading} />
+        <GameGrid games={data} error={error} isLoading={isLoading} />
       </GridItem>
     </Grid>
   );
