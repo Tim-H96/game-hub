@@ -1,8 +1,8 @@
 import { Grid, GridItem, Show } from "@chakra-ui/react";
 import GameGrid from "./components/GameGrid";
 import useGames from "./hooks/useGames";
-import LeftPane from "./components/LeftPane";
 import NavBar from "./components/NavBar";
+import GenreList from "./components/GenreList";
 
 function App() {
   const { games, error, isLoading } = useGames();
@@ -20,11 +20,10 @@ function App() {
       </GridItem>
       <Show above="lg">
         <GridItem area={"left-pane"}>
-          <LeftPane onClick={() => console.log("clicked")} />
+          <GenreList />
         </GridItem>
       </Show>
       <GridItem area={"main"}>
-        Game Grid
         <GameGrid games={games} error={error} isLoading={isLoading} />
       </GridItem>
     </Grid>

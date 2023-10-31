@@ -1,20 +1,20 @@
 import  { useEffect, useState } from 'react'
-import gameService, {FetchGamesResponse, Game }  from '../services/game-service';
 import { CanceledError } from 'axios';
+import genreService, { FetchGenresResponse, Genre } from '../services/genre-service';
 
 
-const useGames = () => {
-    const [games, setGames] = useState<Game[]>([]);
+const useGenres = () => {
+    const [genres, setGenres] = useState<Genre[]>([]);
     const [error, setError] = useState("");
     const [isLoading, setIsLoading] = useState(false);
   
     useEffect(() => {
         
-        const {request, cancel} = gameService.getAll<FetchGamesResponse>();
+        const {request, cancel} = genreService.getAll<FetchGenresResponse>();
         setIsLoading(true);
         request
             .then((res) => {  
-                setGames(res.data.results);
+                setGenres(res.data.results);
                 console.log(res.data);
                 setIsLoading(false);
             })
@@ -27,7 +27,7 @@ const useGames = () => {
         return () => cancel();
     }, []);
 
-    return {games, error, isLoading, setGames, setError};
+    return {genres, error, isLoading, setGenres, setError};
 }
 
-export default useGames
+export default useGenres

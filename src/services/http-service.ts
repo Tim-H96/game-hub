@@ -1,11 +1,4 @@
 import apiClient from "./api-client";
-import { Game } from "./game-service";
-
-export interface FetchGamesResponse{
-    count: number;
-    results: Game[]
-}
-
 class HttpService{
     endpoint: string;
 
@@ -13,9 +6,9 @@ class HttpService{
         this.endpoint = endpoint;
     }
 
-    getAll<FetchGamesResponse>(){
+    getAll<T>(){
         const controller = new AbortController();
-        const request = apiClient.get<FetchGamesResponse>(this.endpoint, {
+        const request = apiClient.get<T>(this.endpoint, {
             signal: controller.signal
         });
         return {request, cancel: () => controller.abort()}

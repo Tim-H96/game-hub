@@ -1,5 +1,9 @@
 import create from "./http-service";
 
+export interface FetchGamesResponse{
+    count: number;
+    results: Game[]
+}
 export interface Game{
     id: number;
     added: number;
