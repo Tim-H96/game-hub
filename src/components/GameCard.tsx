@@ -1,6 +1,5 @@
 import {
   Card,
-  AspectRatio,
   Image,
   CardBody,
   Heading,
@@ -11,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { Game } from "../services/game-service";
 import PlatformIconList from "./PlatformIconList";
+import getCroppedImageUrl from "../services/image-url";
 
 interface Props {
   game: Game;
@@ -19,9 +19,8 @@ interface Props {
 const GameCard = ({ game }: Props) => {
   return (
     <Card borderRadius={"lg"} overflow={"hidden"} width={"300px"}>
-      <AspectRatio ratio={16 / 9}>
-        <Image src={game.background_image}></Image>
-      </AspectRatio>
+      <Image src={getCroppedImageUrl(game.background_image)}></Image>
+
       <CardBody>
         <HStack justifyContent="space-between">
           <PlatformIconList

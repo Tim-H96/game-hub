@@ -1,5 +1,5 @@
 import { Game } from "../services/game-service";
-import { Card, SimpleGrid } from "@chakra-ui/react";
+import { SimpleGrid } from "@chakra-ui/react";
 import GameCard from "./GameCard";
 import GameCardSkeletons from "./GameCardSkeletons";
 
