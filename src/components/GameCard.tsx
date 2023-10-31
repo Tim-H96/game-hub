@@ -6,6 +6,8 @@ import {
   Heading,
   Button,
   Text,
+  HStack,
+  Box,
 } from "@chakra-ui/react";
 import { Game } from "../services/game-service";
 import PlatformIconList from "./PlatformIconList";
@@ -16,14 +18,25 @@ interface Props {
 
 const GameCard = ({ game }: Props) => {
   return (
-    <Card borderRadius={"lg"} overflow={"hidden"} padding={"10px"}>
+    <Card borderRadius={"lg"} overflow={"hidden"}>
       <AspectRatio ratio={16 / 9}>
         <Image src={game.background_image}></Image>
       </AspectRatio>
       <CardBody>
-        <PlatformIconList
-          platforms={game.parent_platforms.map((p) => p.platform)}
-        />
+        <HStack justifyContent="space-between">
+          <PlatformIconList
+            platforms={game.parent_platforms.map((p) => p.platform)}
+          />
+          <Box
+            paddingX={2}
+            border={"1px solid"}
+            borderRadius={"md"}
+            textAlign={"center"}
+            color={"green"}
+          >
+            {game.metacritic}
+          </Box>
+        </HStack>
         <Heading fontSize={"2xl"}>{game.name}</Heading>
 
         <Button size={"xsm"}>{game.added}</Button>
