@@ -5,7 +5,7 @@ import LeftPane from "./components/LeftPane";
 import NavBar from "./components/NavBar";
 
 function App() {
-  const { games, error } = useGames();
+  const { games, error, isLoading } = useGames();
 
   return (
     <Grid
@@ -25,7 +25,7 @@ function App() {
       </Show>
       <GridItem area={"main"}>
         Game Grid
-        <GameGrid games={games} error={error} />
+        <GameGrid games={games} error={error} isLoading={isLoading} />
       </GridItem>
     </Grid>
   );

@@ -18,7 +18,7 @@ interface Props {
 
 const GameCard = ({ game }: Props) => {
   return (
-    <Card borderRadius={"lg"} overflow={"hidden"}>
+    <Card borderRadius={"lg"} overflow={"hidden"} width={"300px"}>
       <AspectRatio ratio={16 / 9}>
         <Image src={game.background_image}></Image>
       </AspectRatio>
