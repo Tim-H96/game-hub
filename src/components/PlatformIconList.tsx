@@ -7,7 +7,7 @@ import {
   BsGlobe,
 } from "react-icons/bs";
 import { FaLinux } from "react-icons/fa";
-import { Platform } from "../services/game-service";
+import { Platform } from "../hooks/useGames";
 import { IconType } from "react-icons";
 
 interface Props {
@@ -29,7 +29,7 @@ const PlatformIconList = ({ platforms }: Props) => {
   return (
     <HStack pb={2}>
       {platforms.map((platform) => (
-        <Icon key={platform.slug} as={iconMap[platform.slug]} />
+        <Icon key={platform.id} as={iconMap[platform.slug]} />
       ))}
     </HStack>
   );
