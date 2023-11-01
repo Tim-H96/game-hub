@@ -18,12 +18,10 @@ const useData = <T>(endpoint:string) => {
         apiClient.get<FetchResponse<T>>(endpoint)
             .then((res) => {  
                 setData(res.data.results);
-                console.log(res.data);
                 setIsLoading(false);
             })
             .catch((err) => { 
                 if(err instanceof CanceledError) return;
-                setError(err.message);
                 setIsLoading(false);
             });
             return controller.abort();
