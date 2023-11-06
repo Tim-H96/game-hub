@@ -43,7 +43,6 @@ const GameCard = ({ game }: Props) => {
         </Heading>
 
         <Button size={"xsm"}>{game.added}</Button>
-        <Text>Body</Text>
       </CardBody>
     </Card>
   );
