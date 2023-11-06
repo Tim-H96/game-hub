@@ -7,8 +7,8 @@ import {
   BsGlobe,
 } from "react-icons/bs";
 import { FaLinux } from "react-icons/fa";
-import { Platform } from "../hooks/useGames";
 import { IconType } from "react-icons";
+import { Platform } from "../hooks/usePlatforms";
 
 interface Props {
   platforms: Platform[];
